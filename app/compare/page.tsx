@@ -72,6 +72,19 @@ const mpgData = {
   ],
 };
 
+  const seatCountData = {
+  labels: selectedVehicles.map((v) => `${v.name} (${v.year})`),
+  datasets: [
+    {
+      label: "Seat Count",
+      data: selectedVehicles.map((v) => Number(v.seatCount)),
+      backgroundColor: "rgba(200, 0, 0, 0.6)",
+      borderColor: "rgba(75, 192, 192, 1)",
+      borderWidth: 1,
+    },
+  ],
+};
+
 
   const chartOptions = {
     scales: {
@@ -96,6 +109,7 @@ const mpgData = {
         <div className="flex flex-col w-1/2 h-3/4 gap-6">
           <Bar data={priceData} options={chartOptions} />
           <Bar data={mpgData} options={chartOptions} />
+          <Bar data={seatCountData} options={chartOptions} />
         </div>
       </main>
     </div>
